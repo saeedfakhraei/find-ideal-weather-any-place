@@ -11,7 +11,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WeatherServiceTest {
-    private final WeatherService weatherService = new WeatherService();
+    private final WeatherService weatherService;
+
+    WeatherServiceTest(WeatherService weatherService) {
+        this.weatherService = weatherService;
+    }
 
     @Test
     void testGetIdealHours_valid() {
