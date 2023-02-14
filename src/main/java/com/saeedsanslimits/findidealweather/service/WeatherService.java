@@ -17,7 +17,7 @@ public class WeatherService {
     private static final double OVERCAST_CLOUD = 30.0;
     private static final double CLEAR_CLOUD = 5.0;
 
-    public List<HourlyForecast> getIdealHours(WeatherForecast forecastInfo, String temperature, String wind, String cloud) {
+    public List<HourlyForecast> returnIdealForecastedHours(WeatherForecast forecastInfo, String temperature, String wind, String cloud) {
 
         return forecastInfo.getHourly().stream()
                 .filter(hourlyWeather -> temperatureSatisfies(hourlyWeather, temperature))

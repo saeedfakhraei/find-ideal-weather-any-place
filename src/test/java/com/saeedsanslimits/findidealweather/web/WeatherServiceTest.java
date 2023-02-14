@@ -17,17 +17,17 @@ class WeatherServiceTest {
     void testGetIdealHours_valid() {
         WeatherForecast forecastInfo = buildWeatherForecast();
 
-        List<HourlyForecast> idealHours = weatherService.getIdealHours(forecastInfo, "hot", null, null);
+        List<HourlyForecast> idealHours = weatherService.returnIdealForecastedHours(forecastInfo, "hot", null, null);
 
         assertEquals(1, idealHours.size());
         assertEquals(30, idealHours.get(0).getTemp());
 
-        idealHours = weatherService.getIdealHours(forecastInfo, "mild", null, null);
+        idealHours = weatherService.returnIdealForecastedHours(forecastInfo, "mild", null, null);
 
         assertEquals(1, idealHours.size());
         assertEquals(15, idealHours.get(0).getTemp());
 
-        idealHours = weatherService.getIdealHours(forecastInfo, "cold", null, null);
+        idealHours = weatherService.returnIdealForecastedHours(forecastInfo, "cold", null, null);
 
         assertEquals(1, idealHours.size());
         assertEquals(5, idealHours.get(0).getTemp());
