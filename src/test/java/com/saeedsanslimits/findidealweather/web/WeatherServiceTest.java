@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WeatherServiceTest {
     private final WeatherService weatherService = new WeatherService();
@@ -17,17 +17,17 @@ class WeatherServiceTest {
     void testGetIdealHours_valid() {
         WeatherForecast forecastInfo = buildWeatherForecast();
 
-        List<HourlyForecast> idealHours = weatherService.getIdealHours(forecastInfo, "hot");
+        List<HourlyForecast> idealHours = weatherService.getIdealHours(forecastInfo, "hot", null, null);
 
         assertEquals(1, idealHours.size());
         assertEquals(30, idealHours.get(0).getTemp());
 
-        idealHours = weatherService.getIdealHours(forecastInfo, "mild");
+        idealHours = weatherService.getIdealHours(forecastInfo, "mild", null, null);
 
         assertEquals(1, idealHours.size());
         assertEquals(15, idealHours.get(0).getTemp());
 
-        idealHours = weatherService.getIdealHours(forecastInfo, "cold");
+        idealHours = weatherService.getIdealHours(forecastInfo, "cold", null, null);
 
         assertEquals(1, idealHours.size());
         assertEquals(5, idealHours.get(0).getTemp());
